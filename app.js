@@ -8,6 +8,29 @@ var hbs = require('hbs');//added
 
 var app = express();
 
+// Sequelize (sqlite) - define model inline so no external models/ files are required
+const { Sequelize, DataTypes } = require('sequelize');
+const storage = require('path').join(__dirname, 'data', 'database.sqlite');
+
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage,
+  logging: false
+});
+
+// Task model
+const Task = sequelize.define('Task', {
+  name: { type: DataTypes.STRING, allowNull: false },
+  description: { type: DataTypes.TEXT }
+});
+
+// ensure database tables exist; don't block export - log result
+sequelize.sync().then(() => {
+  console.log('Database synced');
+}).catch(err => {
+  console.error('Unable to sync database:', err);
+});
+
 // view engine setup
 
 app.set('views', path.join(__dirname, 'views'));
@@ -33,11 +56,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials(path.join(__dirname, 'views', 'partials'))
 hbs.registerPartial('partial_name', 'partial value');
 
-// Register an equality helper so templates can do: {{#if (eq v1 v2)}}
-hbs.registerHelper('eq', function (a, b) {
-  return a === b;
-});
-
 /* GET home page. */
 app.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -56,24 +74,57 @@ app.get('/parameters/:name', function(req, res) {
 res.render('index', { title: req.params.name });
 });
 
-app.get('/form', function(req, res) {
-  res.render('form', { title: 'The Form' });
+/* GET add task form */
+app.get('/addtask', function(req, res, next) {
+  res.render('addtask', { title: 'Add Task' });
 });
 
-// app.post('/form', function(req, res) {
-//   // access the posted form data via `req.body`
-//   //res.send('Form submitted! Name: ' + req.body.name);
-//   res.render('submittedindy', { title: 'Form Submitted', name: req.body.name, last: req.body.last });
-// });
-
-app.post('/form', function(req, res) {
-  // access the posted form data via `req.body`
-  //res.send('Form submitted! Name: ' + req.body.name);
-  console.log(req.body);
-  var formdata = req.body;
-  // pass only the form data; templates can compare with the `eq` helper
-  res.render('submittedall', { title: 'Form Submitted', data: formdata });
+/* POST create task */
+app.post('/addtask', async function(req, res, next) {
+  try {
+    const created = await Task.create({ name: req.body.name, description: req.body.description });
+    // render a clearer confirmation page for the saved task
+    res.render('task_submitted', { title: 'Task Saved', task: created });
+  } catch (err) {
+    next(err);
+  }
 });
+
+
+
+/* GET tasks list (JSON) */
+app.get('/tasks', async function(req, res, next) {
+  try {
+    const tasks = await Task.findAll({ order: [['createdAt', 'DESC']] });
+    res.json(tasks);
+  } catch (err) {
+    next(err);
+  }
+});
+
+/* GET tasks page (HTML) */
+app.get('/taskspage', async function(req, res, next) {
+  try {
+    const tasks = await Task.findAll({ order: [['createdAt', 'DESC']] });
+    // render an HTML page with the tasks
+    res.render('taskspage', { title: 'Tasks', tasks });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/* POST delete a task */
+app.post('/tasks/:id/delete', async function(req, res, next) {
+  try {
+    const id = req.params.id;
+    await Task.destroy({ where: { id } });
+    // redirect back to the tasks page
+    res.redirect('/taskspage');
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
