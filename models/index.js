@@ -1,5 +1,5 @@
 const path = require('path');
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 
 const storage = path.join(__dirname, '..', 'data', 'database.sqlite');
 
@@ -9,10 +9,17 @@ const sequelize = new Sequelize({
   logging: false
 });
 
-// import models
-const Task = require('./task')(sequelize);
+const CardAccount = require('./cardAccount')(sequelize, DataTypes);
+const ReceiptItem = require('./receiptItem')(sequelize, DataTypes);
+const Payment = require('./payment')(sequelize, DataTypes);
+
+Payment.belongsTo(CardAccount);
+CardAccount.hasMany(Payment);
 
 module.exports = {
   sequelize,
-  Task
+  Sequelize,
+  CardAccount,
+  ReceiptItem,
+  Payment
 };

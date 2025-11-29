@@ -1,8 +1,393 @@
+
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;    
+}   
+ 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #222b23;       
+  color: #111;
 }
 
-a {
-  color: #00B7FF;
+
+.phone-frame {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f5f5f7;
+
+  border-radius: 0;
+  box-shadow: none;
+
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.site-header {
+  position: sticky;         
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 18px 22px 10px;
+  background: #f5f5f7;
+}
+
+.logo {
+  font-size: 32px;          
+  letter-spacing: 0.02em;
+  color: #d2d2d2;
+  opacity: 0.95;
+}
+
+.phone-content {
+  padding: 6px 22px 32px;
+  box-sizing: border-box;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-helper {
+  font-size: 13px;
+  color: #777;
+}
+
+.ez-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;                 
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.field-label {
+  font-size: 15px;
+  color: #555;
+}
+
+.field input {
+  border-radius: 16px;
+  border: 1px solid #dadada;
+  padding: 14px 16px;
+  font-size: 17px;
+  outline: none;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.field input:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.15);
+}
+
+.field-row {
+  display: block;
+}
+
+.field-half {
+  width: 100%;
+}
+
+.button-row {
+  margin-top: 10px;
+}
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  padding: 17px;
+  border-radius: 999px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.primary-button {
+  background: #111;
+  color: #ffffff;
+}
+
+.primary-button:active {
+  transform: translateY(1px);
+}
+
+.secondary-button {
+  margin-top: 10px;
+  background: #f4f4f4;
+  color: #333;
+  border: 1px solid #d4d4d4;
+  font-weight: 500;
+}
+
+.secondary-button:active {
+  transform: translateY(1px);
+}
+
+.button-link {
+  text-decoration: none;
+  display: block;
+}
+
+.receipt-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 18px;
+  border: 1px solid #e4e4e4;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.receipt-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  font-size: 17px;
+}
+
+.receipt-item + .receipt-item {
+  border-top: 1px solid #efefef;
+}
+
+.receipt-name {
+  font-weight: 500;
+}
+
+.receipt-price {
+  font-variant-numeric: tabular-nums;
+}
+
+.receipt-empty {
+  font-size: 15px;
+  color: #777;
+  padding: 10px 2px;
+}
+
+.total-section {
+  margin-top: 24px;
+}
+
+.total-label {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.total-value {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+
+.msg {
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 9px 11px;
+  border-radius: 8px;
+}
+
+.msg-error {
+  background: #ffe5e5;
+  color: #a20000;
+}
+
+.msg-success {
+  background: #e4f6e8;
+  color: #145c24;
+}
+
+
+.mt-sm { margin-top: 8px; }
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 24px; }
+
+
+.summary-card {
+  background: #111;
+  color: #fff;
+  border-radius: 20px;
+  padding: 16px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.summary-total {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.summary-row {
+  display: flex;
+  gap: 8px;
+}
+
+.summary-chip {
+  flex: 1;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summary-chip-remaining {
+  background: #ffffff;
+  color: #111;
+}
+
+.chip-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.chip-value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ready-banner {
+  background: #16a34a;
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ready-banner-text {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ready-banner-button {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #fff;
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ready-container {
+  margin-top: 12px;
+}
+
+.ready-text {
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.ready-button {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #fff;
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ready-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.ready-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.tap-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+  margin-bottom: 24px;
+  background: #000; 
+}
+
+.tap-card-image {
+  width: 100%;
+  display: block;
+}
+
+.ready-amount {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.ready-reset-form {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ready-reset-button {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 70%;
+  max-width: 260px;
+  text-align: center;
+}
+
+.ready-reset-button:active {
+  transform: translateY(1px);
 }

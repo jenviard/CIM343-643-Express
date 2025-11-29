@@ -1,0 +1,151 @@
+<div class="phone-frame">
+
+  <header class="site-header">
+    <span class="logo">EZ pay</span>
+  </header>
+
+  <main class="phone-content">
+
+    <section class="section">
+      <div class="summary-card">
+
+        {{#if fullyPaid}}
+          <div class="ready-banner">
+            <div class="ready-banner-text">
+              Your check is fully covered. EZ pay has all contributions.
+            </div>
+            <a href="/ezpay/ready" class="ready-banner-button">
+              View ready-to-tap card
+            </a>
+          </div>
+        {{/if}}
+
+        <p class="summary-label">Total check</p>
+        <p class="summary-total">${{total}}</p>
+
+        <div class="summary-row">
+          <div class="summary-chip">
+            <span class="chip-label">Paid</span>
+            <span class="chip-value">${{paymentsTotal}}</span>
+          </div>
+          <div class="summary-chip summary-chip-remaining">
+            <span class="chip-label">Remaining</span>
+            <span class="chip-value">${{remaining}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{#if errorMessage}}
+      <section class="section">
+        <p class="msg msg-error">{{errorMessage}}</p>
+      </section>
+    {{/if}}
+
+    {{#if successMessage}}
+      <section class="section">
+        <p class="msg msg-success">{{successMessage}}</p>
+      </section>
+    {{/if}}
+
+    {{#unless fullyPaid}}
+      <section class="section">
+        <p class="section-helper">
+          Enter your card info and the amount you want to contribute.
+        </p>
+
+        <form action="/ezpay/charge" method="post" class="ez-form">
+
+          <div class="field">
+            <span class="field-label">Card number</span>
+            <input
+              type="text"
+              name="cardNumber"
+              value="{{form.cardNumber}}"
+              placeholder="----------------"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <span class="field-label">Name on card</span>
+            <input
+              type="text"
+              name="cardholderName"
+              value="{{form.cardholderName}}"
+              placeholder="First Last"
+              required
+            >
+          </div>
+
+          <div class="field-row">
+            <div class="field field-half">
+              <span class="field-label">Expiry month (MM)</span>
+              <input
+                type="number"
+                name="expiryMonth"
+                min="1"
+                max="12"
+                value="{{form.expiryMonth}}"
+                placeholder="--"
+                required
+              >
+            </div>
+
+            <div class="field field-half">
+              <span class="field-label">Expiry year (YYYY)</span>
+              <input
+                type="number"
+                name="expiryYear"
+                value="{{form.expiryYear}}"
+                placeholder="----"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field field-half">
+              <span class="field-label">CVV</span>
+              <input
+                type="text"
+                name="cvv"
+                value="{{form.cvv}}"
+                placeholder="---"
+                required
+              >
+            </div>
+
+            <div class="field field-half">
+              <span class="field-label">Amount to pay ($)</span>
+              <input
+                type="number"
+                name="amount"
+                step="0.01"
+                min="0.01"
+                value="{{form.amount}}"
+                placeholder="--.--"
+                required
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="primary-button">
+            Submit payment
+          </button>
+        </form>
+      </section>
+    {{/unless}}
+
+
+
+    <section class="section">
+      <form action="/ezpay/reset" method="post" class="reset-form">
+        <button type="submit" class="secondary-button">
+          Reset demo (cards &amp; payments only)
+        </button>
+      </form>
+    </section>
+
+  </main>
+</div>

@@ -1,0 +1,27 @@
+=<div class="phone-frame">
+  <header class="site-header">
+    <span class="logo">EZ pay</span>
+  </header>
+
+  <main class="phone-content ready-screen">
+
+    <h1 class="ready-title">Ready to Tap</h1>
+
+    <div class="tap-card">
+      <img
+        src="/images/card.png"
+        alt="EZ pay virtual card"
+        class="tap-card-image"
+      >
+    </div>
+
+    <p class="ready-amount">$ {{amount}}</p>
+
+    <form action="/receipt/reset" method="post" class="ready-reset-form">
+      <button type="submit" class="ready-reset-button">
+        Start Over
+      </button>
+    </form>
+
+  </main>
+</div>
