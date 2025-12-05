@@ -1,6 +1,7 @@
 
 html,
-body {
+body 
+{
   margin: 0;
   padding: 0;
   width: 100%;
@@ -8,14 +9,16 @@ body {
   overflow-x: hidden;    
 }   
  
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+body 
+{
+  font-family: sans-serif;
   background: #222b23;       
   color: #111;
 }
 
 
-.phone-frame {
+.phone-frame 
+{
   width: 100%;
   max-width: 430px;
   margin: 0 auto;
@@ -31,7 +34,8 @@ body {
   overflow-x: hidden;
 }
 
-.site-header {
+.site-header 
+{
   position: sticky;         
   top: 0;
   left: 0;
@@ -40,97 +44,112 @@ body {
   background: #f5f5f7;
 }
 
-.logo {
+.logo
+{
   font-size: 32px;          
-  letter-spacing: 0.02em;
   color: #d2d2d2;
   opacity: 0.95;
 }
 
-.phone-content {
+.phone-content 
+{
   padding: 6px 22px 32px;
   box-sizing: border-box;
 }
 
-.section {
+.section 
+{
   margin-top: 24px;
 }
 
-.section-title {
+.section-title 
+{
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.section-helper {
+.section-helper 
+{
   font-size: 13px;
   color: #777;
 }
 
-.ez-form {
+.ez-form 
+{
   display: flex;
   flex-direction: column;
   gap: 14px;                 
 }
 
-.field {
+.field 
+{
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 100%;
 }
 
-.field-label {
+
+.field-label 
+{
   font-size: 15px;
   color: #555;
 }
 
-.field input {
+.field input 
+{
   border-radius: 16px;
   border: 1px solid #dadada;
   padding: 14px 16px;
   font-size: 17px;
-  outline: none;
   background: #ffffff;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.field input:focus {
+.field input:focus 
+{
   border-color: #111;
   box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.15);
 }
 
-.field-row {
+.field-row 
+{
   display: block;
 }
 
-.field-half {
+.field-half 
+{
   width: 100%;
 }
 
-.button-row {
+.button-row 
+{
   margin-top: 10px;
 }
 
 .primary-button,
-.secondary-button {
+.secondary-button 
+{
   width: 100%;
   padding: 17px;
   border-radius: 999px;
-  border: none;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
   text-align: center;
 }
 
-.primary-button {
+
+.primary-button 
+{
   background: #111;
   color: #ffffff;
 }
 
-.primary-button:active {
-  transform: translateY(1px);
+.primary-button:active 
+{
+  margin-top: 1px;
 }
 
 .secondary-button {
@@ -141,16 +160,18 @@ body {
   font-weight: 500;
 }
 
-.secondary-button:active {
-  transform: translateY(1px);
+.secondary-button:active 
+{
+  margin-top: 1px;
 }
 
-.button-link {
-  text-decoration: none;
+.button-link 
+{
   display: block;
 }
 
-.receipt-list {
+.receipt-list 
+{
   list-style: none;
   padding: 0;
   margin: 0;
@@ -160,7 +181,8 @@ body {
   overflow: hidden;
 }
 
-.receipt-item {
+.receipt-item 
+{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -168,53 +190,64 @@ body {
   font-size: 17px;
 }
 
-.receipt-item + .receipt-item {
+
+.receipt-item + .receipt-item 
+{
   border-top: 1px solid #efefef;
 }
 
-.receipt-name {
+.receipt-name 
+{
   font-weight: 500;
 }
 
-.receipt-price {
+.receipt-price 
+{
   font-variant-numeric: tabular-nums;
 }
 
-.receipt-empty {
+.receipt-empty 
+{
   font-size: 15px;
   color: #777;
   padding: 10px 2px;
 }
 
-.total-section {
+.total-section 
+{
   margin-top: 24px;
 }
 
-.total-label {
+.total-label 
+{
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 4px;
 }
 
-.total-value {
+.total-value 
+{
   font-size: 28px;
   font-weight: 800;
 }
 
 
-.msg {
+.msg
+ {
   font-size: 14px;
   margin-top: 10px;
   padding: 9px 11px;
   border-radius: 8px;
 }
 
-.msg-error {
+.msg-error 
+{
   background: #ffe5e5;
   color: #a20000;
 }
 
-.msg-success {
+.msg-success 
+{
   background: #e4f6e8;
   color: #145c24;
 }
@@ -225,7 +258,8 @@ body {
 .mt-lg { margin-top: 24px; }
 
 
-.summary-card {
+.summary-card 
+{
   background: #111;
   color: #fff;
   border-radius: 20px;
@@ -234,7 +268,8 @@ body {
   margin-bottom: 20px;
 }
 
-.summary-label {
+.summary-label 
+{
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -242,18 +277,22 @@ body {
   margin-bottom: 4px;
 }
 
-.summary-total {
+.summary-total 
+{
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
-.summary-row {
+.summary-row 
+{
   display: flex;
   gap: 8px;
 }
 
-.summary-chip {
+
+.summary-chip 
+{
   flex: 1;
   border-radius: 999px;
   padding: 8px 12px;
@@ -263,24 +302,28 @@ body {
   gap: 2px;
 }
 
-.summary-chip-remaining {
+.summary-chip-remaining
+ {
   background: #ffffff;
   color: #111;
 }
 
-.chip-label {
+.chip-label 
+{
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.8;
 }
 
-.chip-value {
+.chip-value 
+{
   font-size: 15px;
   font-weight: 600;
 }
 
-.ready-banner {
+.ready-banner 
+{
   background: #16a34a;
   border-radius: 14px;
   padding: 10px 12px;
@@ -290,12 +333,14 @@ body {
   gap: 8px;
 }
 
-.ready-banner-text {
+.ready-banner-text 
+{
   font-size: 13px;
   line-height: 1.4;
 }
 
-.ready-banner-button {
+.ready-banner-button 
+{
   display: inline-block;
   align-self: flex-start;
   padding: 8px 14px;
@@ -309,16 +354,19 @@ body {
   cursor: pointer;
 }
 
-.ready-container {
+.ready-container
+ {
   margin-top: 12px;
 }
 
-.ready-text {
+.ready-text 
+{
   font-size: 12px;
   margin-bottom: 6px;
 }
 
-.ready-button {
+.ready-button 
+{
   display: inline-block;
   padding: 8px 14px;
   border-radius: 999px;
@@ -331,21 +379,24 @@ body {
   cursor: pointer;
 }
 
-.ready-screen {
+.ready-screen 
+{
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 32px;
 }
 
-.ready-title {
+.ready-title 
+{
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 18px;
   text-align: center;
 }
 
-.tap-card {
+.tap-card 
+{
   width: 100%;
   max-width: 360px;
   border-radius: 18px;
@@ -355,26 +406,30 @@ body {
   background: #000; 
 }
 
-.tap-card-image {
+.tap-card-image 
+{
   width: 100%;
   display: block;
 }
 
-.ready-amount {
+.ready-amount 
+{
   font-size: 24px;
   font-weight: 700;
   text-align: center;
   margin-top: 4px;
 }
 
-.ready-reset-form {
+.ready-reset-form 
+{
   margin-top: 20px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.ready-reset-button {
+.ready-reset-button
+ {
   padding: 14px 24px;
   border-radius: 999px;
   border: none;
@@ -388,6 +443,7 @@ body {
   text-align: center;
 }
 
-.ready-reset-button:active {
-  transform: translateY(1px);
+.ready-reset-button:active 
+{
+  margin-top: 10px;
 }

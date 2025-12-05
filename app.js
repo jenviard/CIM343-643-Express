@@ -16,7 +16,7 @@ async function initDatabase() {
   if (cardCount === 0) {
     await CardAccount.bulkCreate([
       {
-        cardNumber: '4111111111111111',
+        cardNumber: '1111',
         expiryMonth: 12,
         expiryYear: 2027,
         cvv: '123',
@@ -24,7 +24,7 @@ async function initDatabase() {
         availableBalance: 20.0
       },
       {
-        cardNumber: '5555555555554444',
+        cardNumber: '2222',
         expiryMonth: 11,
         expiryYear: 2026,
         cvv: '456',
@@ -32,7 +32,7 @@ async function initDatabase() {
         availableBalance: 40.0
       },
       {
-        cardNumber: '4000000000000002',
+        cardNumber: '3333',
         expiryMonth: 10,
         expiryYear: 2028,
         cvv: '789',
@@ -40,7 +40,7 @@ async function initDatabase() {
         availableBalance: 30.0
       },
       {
-        cardNumber: '378282246310005',
+        cardNumber: '4444',
         expiryMonth: 9,
         expiryYear: 2027,
         cvv: '321',
@@ -48,7 +48,7 @@ async function initDatabase() {
         availableBalance: 60.0
       },
       {
-        cardNumber: '6011111111111117',
+        cardNumber: '5555',
         expiryMonth: 8,
         expiryYear: 2029,
         cvv: '654',
@@ -240,7 +240,7 @@ app.post('/ezpay/charge', async function (req, res, next) {
 
     const successMessage =
       newRemaining === 0
-        ? 'Payment accepted! The entire check is now fully covered. Behind the scenes, EZPay would now aggregate these charges onto a single “tap-to-pay” card.'
+        ? 'The entire check is now fully covered. EZPay would now aggregate these charges onto a single tap-to-pay card.'
         : 'Payment accepted!';
 
     await renderEzpayPage(res, {
